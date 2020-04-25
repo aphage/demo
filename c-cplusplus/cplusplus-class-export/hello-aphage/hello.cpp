@@ -75,7 +75,7 @@ template class EXPORT Hello3<int>;
 //EXPORT 可以写在 CLASS 上或在这里
 
 
-
+//EXPORT cannot be written here
 //这里不能写 EXPORT
 template<typename T>
 T Echo(T&& v) {
@@ -86,3 +86,24 @@ T Echo(T&& v) {
 //Explicit instantiation
 template EXPORT int Echo(int&&);
 template EXPORT double Echo(double&&);
+
+
+
+
+class EXPORT Hello4 {
+
+public:
+	Hello4(const char* name) {
+		this->name = new std::string(name);
+	}
+	~Hello4() {
+		delete this->name;
+	}
+
+	void Say(const char* s) {
+		std::cout << name << ": " << s << std::endl;
+	}
+
+private:
+	std::string* name;
+};

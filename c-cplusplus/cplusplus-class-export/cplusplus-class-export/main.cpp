@@ -47,6 +47,18 @@ template<typename T>
 EXPORT T Echo(T&& v);
 
 
+class EXPORT Hello4 {
+
+public:
+	Hello4(const char* name);
+	~Hello4();
+
+	void Say(const char* s);
+
+private:
+	std::string* name;
+};
+
 #pragma comment(lib,"./../Debug/hello-aphage.lib")
 
 int main() {
@@ -67,6 +79,9 @@ int main() {
 	//hello31.Say(1);
 
 	Echo<int>(2233);
+
+	Hello4 hello4("aphage");
+	hello4.Say("aqua suki");
 
 	//https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-1-c4251?view=vs-2019
 
